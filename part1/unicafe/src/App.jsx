@@ -1,11 +1,17 @@
 import { useState } from 'react'
+
+// defining a statistics component
+
+
 const App = () => {
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
 
   const Button = ({onClick, text }) => <button onClick={onClick}>{text}</button>
-  return (  
+  let all = good + bad + neutral
+  let pos = all !== 0 ? good / all : 0
+  return ( 
     <>
     <h2><strong>give feedback</strong></h2>
     <Button onClick={() => setGood(good+1)} text={'good'} />
@@ -14,11 +20,12 @@ const App = () => {
     <h2><strong>Statistics</strong></h2>
     <p>No feedback given</p>
       {/* <div>{good} {neutral} {bad}</div> */}
-    <div>good</div>
-    <div>neutral</div>
-    <div>bad</div>
-    <div>all</div>
-    <div>average</div>
+    <div>good {good}</div>
+    <div>neutral {neutral}</div>
+    <div>bad {bad}</div>
+    <div>all {all}</div>
+    <div>average {all/3}</div>
+    <div>positive {pos}%</div>
     
     </>
       
