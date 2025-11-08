@@ -15,20 +15,55 @@ const App = () => {
 
   
   const [selected, setSelected] = useState(0)     
+
   const generateRandomNumberForQuote = () => {
     setSelected(Math.floor(Math.random() * anecdotes.length))
   }
-  console.log("hi")
+
+
+
+  const[votes, setVotes] = useState(Array(anecdotes.length).fill(0))
+  // [0,0,0,0,0,0,0,0]  
+
+  const voteFunction = () => {
+    // each rendering we are creating a new copy of the original votes array and then we 
+    // change that copy and update the original to be that exact copy
+   const copy = [...votes]
+   copy[selected] += 1
+   setVotes(copy)
+  }
+
+  const maxVotesValue = Math.max(...votes)
+  const maxVotesIndex = votes.indexOf(maxVotesValue)
+  console.log(maxVotesValue)
+
+  
   return (
+    
     <div>
+      <h2>
+        Anecdote of the day
+      </h2>
       <div>
         {anecdotes[selected]}
-      </div>  
+      </div> 
+
+      <button onClick={voteFunction}>
+        vote
+      </button>
       <button onClick={generateRandomNumberForQuote}>
         next anecdote
       </button>
-      
+      <h2>
+        Anecdote with the most votes
+      </h2>
+      <div>
+        {anecdotes[maxVotesIndex]}
+      </div>  
     </div>
+    
+    
+    
   )
 }
 
