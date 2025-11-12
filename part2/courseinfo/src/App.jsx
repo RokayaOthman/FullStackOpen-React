@@ -5,7 +5,7 @@ const App = () => {
     )
   }
 
-  const part1 = 'Fundamentals of React'
+  const part1 = 'Fundamentalss of React'
   const exercises1 = 10
   const part2 = 'Using props to pass data'
   const exercises2 = 7
