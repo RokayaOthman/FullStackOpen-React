@@ -12,7 +12,7 @@ const App = () => {
   const part3 = 'State of a component'
   const exercises3 = 14 
   const course = 'Half Stack application development'
-
+// ..
   
 
   const Part = (props) => {
