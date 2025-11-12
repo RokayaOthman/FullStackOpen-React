@@ -14,7 +14,7 @@ const App = () => {
   const course = 'Half Stack application development'
 // ..
   
-
+// comment
   const Part = (props) => {
     return (
       <p>
