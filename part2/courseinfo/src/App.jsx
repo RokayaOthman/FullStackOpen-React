@@ -6,9 +6,6 @@ const App = () => {
   }
 
   
-// ..
-  
-// comment
   const Part = (props) => {
     return (
       <p>
