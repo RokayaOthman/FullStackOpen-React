@@ -5,13 +5,7 @@ const App = () => {
     )
   }
 
-  const part1 = 'Fundamentalss of React'
-  const exercises1 = 10
-  const part2 = 'Using props to pass data'
-  const exercises2 = 7
-  const part3 = 'State of a component'
-  const exercises3 = 14 
-  const course = 'Half Stack application development'
+  
 // ..
   
 // comment
@@ -39,14 +33,7 @@ const App = () => {
 
   
   const Content = (props) => {
-    // return (
-    //   <>
-    //   <Part partNumber={part1} enumber={exercises1} />
-    //   <Part partNumber={part2} enumber={exercises2} />
-    //   <Part partNumber={part3} enumber={exercises3} />
-    //   </>
-    // )
-  
+    
     return (
       <>
         {parts.map(part => (<p>
