@@ -23,6 +23,8 @@ const App = () => {
     ]
   }
 
+  const totalE = course.parts.reduce((acc, part) => acc + (part.exercises) , 0 )
+
   const Header = (props) => {
     return (
       <h1>{props.name}</h1>
@@ -36,9 +38,7 @@ const App = () => {
               {part.name} {part.exercises}
             </p>
             ))}
-      </>
-        
-      
+      </>   
     )
   }
 
@@ -47,29 +47,8 @@ const App = () => {
     <>
       <Header name={course.name}/>
       <Content />
+      <p>total of {totalE} exercises</p>
     </>
-    )
-  }
-
-  
-  
-  const Part = (props) => {
-    return (
-      <p>
-        {props.partNumber} {props.enumber}
-      </p>
-    )
-  }
-
- 
-
-
-  const Total = (props) => {
-    const total = parts.reduce((sum, part) => sum + part.exercises, 0)
-    return (
-      <h3>
-        Number of excercises {total}
-      </h3>
     )
   }
     
