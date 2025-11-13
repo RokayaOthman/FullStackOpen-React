@@ -30,14 +30,15 @@ const App = () => {
   }
 
   const Content = (props) => {
-    
     return (
       <>
-        {course.parts.map(part => (<p>
+      {course.parts.map(part => (<p>
               {part.name} {part.exercises}
             </p>
             ))}
       </>
+        
+      
     )
   }
 
@@ -46,7 +47,6 @@ const App = () => {
     <>
       <Header name={course.name}/>
       <Content />
-
     </>
     )
   }
