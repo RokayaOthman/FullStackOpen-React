@@ -3,7 +3,7 @@ import { useState } from 'react'
 const App = () => {
   const [persons, setPersons] = useState([
     { name: 'Arto Hellas', number: '040-1234561', id: 1 },
-    { name: 'Ada Lovelace', number: '39-44-5323523', id: 2 },
+    { name: 'Ada Lovelace', number: '39-44-532523', id: 2 },
     { name: 'Dan Abramov', number: '12-43-2343455', id: 3 },
     { name: 'Mary Poppendieck', number: '39-23-64231222', id: 4 }
   ]) 
