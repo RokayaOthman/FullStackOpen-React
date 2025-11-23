@@ -1,15 +1,28 @@
 import { useState } from 'react'
+import { useEffect } from 'react'
+import axios from 'axios'
 import PersonFormDisplay from './components/PersonForm'
 import PersonsDisplay from './components/persons'
 import FilterSearch from './components/Filter'
 
 const App = () => {
-  const [persons, setPersons] = useState([
-    { name: 'Arto Hellas', number: '040-1234561', id: 1 },
-    { name: 'Ada Lovelace', number: '39-44-532523', id: 2 },
-    { name: 'Dan Abramov', number: '12-43-2343455', id: 3 },
-    { name: 'Mary Poppendieck', number: '39-23-64231222', id: 4 }
-  ]) 
+  // The task is instead of using the data that is inside App.jsx we will fetch it from db.json
+  // const [persons, setPersons] = useState([
+  //   { name: 'Arto Hellas', number: '040-1234561', id: 1 },
+  //   { name: 'Ada Lovelace', number: '39-44-532523', id: 2 },
+  //   { name: 'Dan Abramov', number: '12-43-2343455', id: 3 },
+  //   { name: 'Mary Poppendieck', number: '39-23-64231222', id: 4 }
+  // ]) 
+
+  const [persons, setPersons] = useState([])
+
+  useEffect(() => {
+    axios 
+    .get('http://localhost:3001/persons')
+    .then(Response => {
+      setPersons(Response.data)
+    })
+  }, [])
 
   // to store user submitted input
   const [newName, setNewName] = useState('')
