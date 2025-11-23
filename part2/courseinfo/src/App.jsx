@@ -47,7 +47,7 @@ const App = () => {
   ] 
  // // // // /
 
- // / // // // // // // // 
+ // / // // // // // // // // 
   // // // // // // // // // //// 
 // // // // // // // // // // // 
   const totalE = course[0].parts.reduce((acc, part) => acc + (part.exercises) , 0 )
