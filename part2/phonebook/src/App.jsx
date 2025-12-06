@@ -47,7 +47,11 @@ const App = () => {
   }
   
   // this function is called with the event handler inside input field
-  // onChange handler must be with a value prop
+  // onChange handler must be with a value prop // // // 
+  // // // 
+  // // / $/
+  // // // 
+  // // // 
   const handleNameChange = (event) => {
     setNewName(event.target.value)
   }
