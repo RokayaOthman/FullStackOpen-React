@@ -16,8 +16,8 @@ const App = () => {
 
   useEffect(() => {
     numberService
-    .getAll()
-    .then(Response => setNewNumber(Response.data))
+    .getAll() 
+    .then(data => setPersons(data))
   }, [])
 
   const addNameNumber = (event) => {
@@ -28,11 +28,7 @@ const App = () => {
         name: newName,
         number: newNumber,
        }
-       // TODO : change this 
-      // setPersons(persons.concat(personObject))
-      // setNewName('')
-      // setNewNumber('')
-      // 
+      
       numberService
       .create(personObject)
       .then(response => {
@@ -48,7 +44,7 @@ const App = () => {
   }
   
   // this function is called with the event handler inside input field
-  // onChange handler must be with a value prop // // // 
+  // onChange handler must be with a value prop
  
   const handleNameChange = (event) => {
     setNewName(event.target.value)
@@ -68,17 +64,7 @@ const App = () => {
         filter shown with <input value={newSearch} type='search' onChange={handleSearchChange}/>
       </div>
       ...
-      {/* <form onSubmit={addNameNumber}>
-        <div>
-          name:   <input value={newName} onChange={handleNameChange}/>
-        </div>
-        <div>
-          number : <input value={newNumber} onChange={handleNumberChange}/>
-        </div>
-        <div>
-          <button type="submit">add</button>
-        </div>  
-      </form> */}
+      
       <FilterSearch newSearch = {newSearch} handleSearchChange = {handleSearchChange} />
       <PersonFormDisplay newName = {newName} newNumber = {newNumber} addNameNumber = {addNameNumber} handleNameChange = {handleNameChange} handleNumberChange = {handleNumberChange} />
       <h2>Numbers</h2>  

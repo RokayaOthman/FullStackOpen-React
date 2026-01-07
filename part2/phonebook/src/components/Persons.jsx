@@ -1,5 +1,5 @@
 const PersonsDisplay = ({persons, newSearch}) => {
-      const filteredPersons = persons.filter(person => person.name.toLowerCase().includes(newSearch))
+      const filteredPersons = persons.filter(person => person.name.toLowerCase().includes(newSearch.toLowerCase()))
     return (
         <ul>
           {filteredPersons.map((person, index) => <li key={person.id}>{person.name}{person.number}</li>)}
