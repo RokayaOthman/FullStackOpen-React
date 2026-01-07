@@ -42,7 +42,12 @@ const App = () => {
       window.alert(`${newName} is already added!`)
     }
   }
-  
+ 
+  const deleteNameNumber = (id) => {
+    numberService
+    .remove(id).then(() => {setPersons(persons.filter(p => p.id !== id))})
+  }
+
   // this function is called with the event handler inside input field
   // onChange handler must be with a value prop
  
@@ -68,7 +73,7 @@ const App = () => {
       <FilterSearch newSearch = {newSearch} handleSearchChange = {handleSearchChange} />
       <PersonFormDisplay newName = {newName} newNumber = {newNumber} addNameNumber = {addNameNumber} handleNameChange = {handleNameChange} handleNumberChange = {handleNumberChange} />
       <h2>Numbers</h2>  
-      <PersonsDisplay persons = {persons} newSearch={newSearch} />
+      <PersonsDisplay persons = {persons} newSearch={newSearch} deleteNameNumber= {deleteNameNumber}/>
 
      
     </div>
