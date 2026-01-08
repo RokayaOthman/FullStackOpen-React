@@ -38,9 +38,11 @@ const App = () => {
       })
 
      }
-    else {
-      window.alert(`${newName} is already added!`)
-    }
+    // else { 
+    //   // TODO: replace old number with the new one if old number is added to an existing user
+    //   let choice = confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)
+    //   if(choice)
+    // }
   }
  
   const deleteNameNumber = (id) => {
