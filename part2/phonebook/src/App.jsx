@@ -44,8 +44,7 @@ const App = () => {
   }
  
   const deleteNameNumber = (id) => {
-    numberService
-    .remove(id).then(() => {setPersons(persons.filter(p => p.id !== id))})
+    numberService.remove(id).then(() => {setPersons(prevPersons => prevPersons.filter(person => person.id !== id))})
   }
 
   // this function is called with the event handler inside input field
