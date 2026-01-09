@@ -38,11 +38,27 @@ const App = () => {
       })
 
      }
-    // else { 
-    //   // TODO: replace old number with the new one if old number is added to an existing user
-    //   let choice = confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)
-    //   if(choice)
-    // }
+    else { 
+      const existingPerson = persons.find(p => p.name === newName)
+     
+      // TODO: replace old number with the new one if old number is added to an existing user
+      let choice = confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)
+      if(choice){
+        const existingPersonObject = {
+          name : existingPerson.name,
+          number: newNumber
+      }
+
+        numberService
+        .update(existingPerson.id, existingPersonObject)
+        .then(returnedPerson => {
+          // replace the old person with the updated one
+          setPersons(persons.map(p => p.id === existingPerson.id ? returnedPerson : p ))
+          setNewName('')
+          setNewNumber('')
+        })
+      }
+    }
   }
  
   const deleteNameNumber = (id) => {
