@@ -15,7 +15,8 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [newSearch, setNewSearch] = useState('')
-  const [successMessage, setSuccessMessage] = useState('')
+  const [notificationMessage, setNotificationMessage] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
   useEffect(() => {
     numberService
     .getAll() 
@@ -38,8 +39,8 @@ const App = () => {
         setNewName('')
         setNewNumber('')
       })
-      setSuccessMessage(`Added ${newName}`)
-      setTimeout(()=>{setSuccessMessage(null)}, 3000)
+      setNotificationMessage(`Added ${newName}`)
+      setTimeout(()=>{setNotificationMessage(null)}, 3000)
      }
     else { 
       const existingPerson = persons.find(p => p.name === newName)
@@ -59,6 +60,10 @@ const App = () => {
           setPersons(persons.map(p => p.id === existingPerson.id ? returnedPerson : p ))
           setNewName('')
           setNewNumber('')
+        })
+        .catch(error => {
+          setErrorMessage(`${existingPerson.name} was already deleted form the server`)
+          setTimeout(()=> {setErrorMessage(null)} , 5000)
         })
       }
     }
@@ -85,7 +90,7 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      <Notification message={successMessage}/>
+      <Notification notifymessage={notificationMessage} errorMessage={errorMessage}/>
       <div>
         filter shown with <input value={newSearch} type='search' onChange={handleSearchChange}/>
       </div>

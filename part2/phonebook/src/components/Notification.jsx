@@ -1,9 +1,22 @@
-const Notification = ({message}) => {
-        if(!message){
-            return null
-        }
-        return (
-            <div className="successMessage">{message}</div>
-        )
+const Notification = ({ notifymessage, errorMessage }) => {
+    const notifyStyle = {
+        color : 'green',
+        fontStyle : 'italic',
+        
+    }
+
+    const errorStyle = {
+        color: 'red',
+        fontStyle: 'italic'
+    }
+
+    return(
+        <div>
+            {errorMessage ? <div style={errorStyle}>{errorMessage}</div> : null}
+            {notifymessage ? <div style={notifyStyle}>{notifymessage}</div> : null }
+        </div>
+    );
+   
 }
+
 export default Notification
