@@ -6,6 +6,8 @@ import numberService from './services/numbers'
 import PersonFormDisplay from './components/PersonForm'
 import PersonsDisplay from './components/persons'
 import FilterSearch from './components/Filter'
+import Notification from './components/Notification'
+
 
 const App = () => {
 
@@ -13,7 +15,7 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [newSearch, setNewSearch] = useState('')
-
+  const [successMessage, setSuccessMessage] = useState('')
   useEffect(() => {
     numberService
     .getAll() 
@@ -36,7 +38,8 @@ const App = () => {
         setNewName('')
         setNewNumber('')
       })
-
+      setSuccessMessage(`Added ${newName}`)
+      setTimeout(()=>{setSuccessMessage(null)}, 3000)
      }
     else { 
       const existingPerson = persons.find(p => p.name === newName)
@@ -82,6 +85,7 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
+      <Notification message={successMessage}/>
       <div>
         filter shown with <input value={newSearch} type='search' onChange={handleSearchChange}/>
       </div>
